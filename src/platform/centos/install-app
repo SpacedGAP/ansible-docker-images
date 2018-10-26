@@ -1,0 +1,4 @@
+pip install ansible==${ANSIBLE_VERSION} && \
+# Install Ansible inventory file.
+mkdir -p /etc/ansible && \
+echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts && \

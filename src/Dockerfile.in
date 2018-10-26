@@ -1,0 +1,18 @@
+FROM __SOURCE_IMAGE__
+
+ENV LANGUAGE=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV LC_CTYPE=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV TERM xterm
+
+RUN ANSIBLE_VERSION="__ANSIBLE_VERSION__" && \
+    echo "Installing build dependencies" && \
+    __ANSIBLE_INSTALL_DEPS__
+    echo "Installing Ansible" && \
+    __ANSIBLE_INSTALL_APP__
+    echo "Cleaning up" && \
+    __ANSIBLE_CLEANUP_DEPS__
+    echo "Done"
+
+
